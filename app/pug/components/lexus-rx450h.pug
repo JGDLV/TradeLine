@@ -1,0 +1,84 @@
+-
+  var car = {
+    header: 'Lexus RX450h с аукционов Японии под заказ',
+    subheader: 'Полная пошлина | 2016 г | 62 781 км | 3 470 000 руб. ',
+    params: [
+      { name: 'car', text: 'Lexus RX450h' },
+      { name: 'mileage', text: 'Пробег — 62 781 км.' },
+      { name: 'year', text: 'Выпуск — 2016 год' },
+      { name: 'auction', text: 'Аукцион — USS Tokyo' },
+      { name: 'lot', text: 'Лот — 23221' },
+      { name: 'assessment', text: 'Оценка — 4В' },
+      { name: 'bought', text: 'Купили — 3 405 000 ¥' },
+      { name: 'customs', text: 'Таможня — 1 150 000 ₽' },
+      { name: 'total', text: 'Итого — 3 470 000 ₽' },
+    ],
+    photos: [
+      'img/cars/lexus-rx450h/01.jpg',
+      'img/cars/lexus-rx450h/02.jpg',
+      'img/cars/lexus-rx450h/03.jpg',
+      'img/cars/lexus-rx450h/04.jpg',
+      'img/cars/lexus-rx450h/05.jpg',
+      'img/cars/lexus-rx450h/06.jpg',
+      //- 'img/cars/lexus-rx450h/07.jpg',
+      //- 'img/cars/lexus-rx450h/08.jpg',
+    ],
+    review: {
+      image: 'img/reviews-06.jpg',
+      name: 'Светлана',
+      info: 'Lexus RX450h куплен на аукционе в Японии и доставлен клиенту в РФ',
+      text: 'Я заказывала себе автомобиль через Артёма, сотрудника данной компании. Осталась очень довольна и хочу сказать огромное спасибо. Обращайтесь 100%',
+      date: '06.11.2020'
+    }
+  }
+
+  var listChunks = [];
+  for (var i = 0; i < Math.ceil(car.params.length / 3); i++) {
+    listChunks.push(car.params.slice(3 * i, 3 * (i + 1)));
+  }
+
+.car#car.wow.fadeIn(data-wow-delay=".1s")
+  .container
+    h1.car__header.wow.fadeInUp(data-wow-delay=".2s") !{car.header}
+    p.car__subheader.wow.fadeInUp(data-wow-delay=".2s") !{car.subheader}
+    .car-tabs.tabs.wow.fadeInUp(data-wow-delay=".3s")
+      .car-tabs__inner.row.align-items-start
+        each content in car.photos
+          .car-tabs__content.tabs__content.col-md-8
+            img(src=content, alt="")
+        .car-tabs-controls.tabs-controls.col-md-4
+          each control in car.photos
+            .car-tabs__control.tabs__control
+              img(src=control, alt="")
+    .car-params.row
+      each chunk in listChunks
+        .car-params__part.col-lg-4.col-md-6
+          each param, index in chunk
+            .car__param(class="car__param_" + param.name) !{param.text}
+    .car-review.wow.fadeInUp(data-wow-delay=".1s")
+      h2.car-review__header Отзыв нашего клиента
+      .car-review__inner.row
+        .car-review__image-part.col-md-4
+          img.car-review__image(src=car.review.image, alt="")
+          .car-review__real Реальный владелец
+        .car-review__text-part.col-md-8
+          .car-review__text-part-top
+            p.car-review__name !{car.review.name}
+            p.car-review__info !{car.review.info}
+            .car-review__text !{car.review.text}
+            p.car-review__date !{car.review.date}
+    form.order-form.car-form.wow.fadeInUp(data-wow-delay=".1s" onsubmit="ym(71298799, 'reachGoal', 'ok_order'); return true;")
+      h2.car-form__header Хотите такой автомобиль?
+      input(type="hidden" name="act" value="order")
+      input.order-form__subject(type="hidden" name="subject" value=car.params[0].text)
+      .car-form__inner
+        label.order-form__label.order-form__label_name
+          input.order-form__input.order-form__name(type="text" name="name" placeholder="Ваше имя")
+        label.order-form__label.order-form__label_phone
+          input.order-form__input.order-form__phone(type="text" name="phone" placeholder="Номер телефона" required)
+        label.order-form__label.order-form__label_city
+          input.order-form__input.order-form__city(type="text" name="city" placeholder="Ваш город")
+          p.order-form__text чтобы мы не звонили вам ночью
+      button.order-form__button.btn
+        span Оставить заявку
+    include ../components/car-interesting.pug

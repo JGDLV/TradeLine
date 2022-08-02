@@ -1,0 +1,53 @@
+-
+  var delivered = {
+    items: [
+      {
+        image: 'img/cars/lexus-nx-300h/01.jpg',
+        name: 'Lexus NX 300h',
+        price: '3 030 000',
+        year: '2017',
+        mileage: '84 528',
+        link: 'lexus-nx-300h.html'
+      },
+      {
+        image: 'img/cars/lexus-rx450h/01.jpg',
+        name: 'Lexus RX450h',
+        price: '3 470 000',
+        year: '2016',
+        mileage: '62 781',
+        link: 'lexus-rx450h.html'
+      },
+      {
+        image: 'img/cars/nissan-note-e-power-x/01.jpg',
+        name: 'Nissan Note e-Power',
+        price: '760 000',
+        year: '2017',
+        mileage: '83 085',
+        link: 'nissan-note-e-power-x.html'
+      },
+      {
+        image: 'img/cars/toyota-c-hr/01.jpg',
+        name: 'Toyota C-HR',
+        price: '1 574 000',
+        year: '2016',
+        mileage: '36 529',
+        link: 'toyota-c-hr.html'
+      },
+    ]
+  }
+
+.car-interesting.wow.fadeInUp(data-wow-delay=".1s")
+  h2.car-interesting__header.wow.fadeInUp(data-wow-delay=".2s") Возможно, вам будет интересно
+  .delivered-items.row.wow.fadeInUp(data-wow-delay=".3s")
+    each item in delivered.items
+      .delivered__item-wrap.col-xl-3.col-md-6
+        a.delivered__item(href=item.link)
+          span.delivered__item-image-part
+            img.delivered__item-image(src=item.image, alt='')
+          span.delivered__item-text-part
+            span.delivered__item-left
+              span.delivered__item-name !{item.name}
+              span.delivered__item-year год выпуска !{item.year}
+            span.delivered__item-right
+              span.delivered__item-price !{item.price} ₽
+              span.delivered__item-mileage пробег !{item.mileage} км

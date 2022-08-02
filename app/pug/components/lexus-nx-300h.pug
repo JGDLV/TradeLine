@@ -1,0 +1,84 @@
+-
+  var car = {
+    header: 'Lexus NX 300h с аукционов Японии под заказ',
+    subheader: 'Полная пошлина | 2017 г | 84 528 км | 3 030 000 руб. ',
+    params: [
+      { name: 'car', text: 'Lexus NX 300h' },
+      { name: 'mileage', text: 'Пробег — 84 528 км.' },
+      { name: 'year', text: 'Выпуск — 2017 год' },
+      { name: 'auction', text: 'Аукцион — CAA Gifu' },
+      { name: 'lot', text: 'Лот — 4079' },
+      { name: 'assessment', text: 'Оценка — 4,5 В/В' },
+      { name: 'bought', text: 'Купили — 2 910 000 ¥' },
+      { name: 'customs', text: 'Таможня — 704 066 ₽' },
+      { name: 'total', text: 'Итого — 3 030 000 ₽' },
+    ],
+    photos: [
+      'img/cars/lexus-nx-300h/01.jpg',
+      'img/cars/lexus-nx-300h/02.jpg',
+      'img/cars/lexus-nx-300h/03.jpg',
+      'img/cars/lexus-nx-300h/04.jpg',
+      'img/cars/lexus-nx-300h/05.jpg',
+      'img/cars/lexus-nx-300h/06.jpg',
+      'img/cars/lexus-nx-300h/07.jpg',
+      'img/cars/lexus-nx-300h/08.jpg',
+    ],
+    review: {
+      image: 'img/car-review-image.jpg',
+      name: 'Сирожа',
+      info: 'Lexus NX 300h куплен на аукционе в Японии и доставлен клиенту в РФ',
+      text: 'Расход топлива 10-12. Но этой машине можно многое простить за красивый дизайн снаружи, <br>а также исполнение салона. Внутри чувствуешь себя уютно, так как видно настоящее японское качество. Хорошая сборка, приятные на ощупь материалы, эргономичность – все это производит благоприятное впечатление. <br>Цена на автомобиль значительно приятнее в сравнении с моделями этого же класса. <br>Это и оправдано.',
+      date: '23.11.2019'
+    }
+  }
+
+  var listChunks = [];
+  for (var i = 0; i < Math.ceil(car.params.length / 3); i++) {
+    listChunks.push(car.params.slice(3 * i, 3 * (i + 1)));
+  }
+
+.car#car.wow.fadeIn(data-wow-delay=".1s")
+  .container
+    h1.car__header.wow.fadeInUp(data-wow-delay=".2s") !{car.header}
+    p.car__subheader.wow.fadeInUp(data-wow-delay=".2s") !{car.subheader}
+    .car-tabs.tabs.wow.fadeInUp(data-wow-delay=".3s")
+      .car-tabs__inner.row.align-items-start
+        each content in car.photos
+          .car-tabs__content.tabs__content.col-md-8
+            img(src=content, alt="")
+        .car-tabs-controls.tabs-controls.col-md-4
+          each control in car.photos
+            .car-tabs__control.tabs__control
+              img(src=control, alt="")
+    .car-params.row
+      each chunk in listChunks
+        .car-params__part.col-lg-4.col-md-6
+          each param, index in chunk
+            .car__param(class="car__param_" + param.name) !{param.text}
+    .car-review.wow.fadeInUp(data-wow-delay=".1s")
+      h2.car-review__header Отзыв нашего клиента
+      .car-review__inner.row
+        .car-review__image-part.col-md-4
+          img.car-review__image(src=car.review.image, alt="")
+          .car-review__real Реальный владелец
+        .car-review__text-part.col-md-8
+          .car-review__text-part-top
+            p.car-review__name !{car.review.name}
+            p.car-review__info !{car.review.info}
+            .car-review__text !{car.review.text}
+            p.car-review__date !{car.review.date}
+    form.order-form.car-form.wow.fadeInUp(data-wow-delay=".1s" onsubmit="ym(71298799, 'reachGoal', 'ok_order'); return true;")
+      h2.car-form__header Хотите такой автомобиль?
+      input(type="hidden" name="act" value="order")
+      input.order-form__subject(type="hidden" name="subject" value=car.params[0].text)
+      .car-form__inner
+        label.order-form__label.order-form__label_name
+          input.order-form__input.order-form__name(type="text" name="name" placeholder="Ваше имя")
+        label.order-form__label.order-form__label_phone
+          input.order-form__input.order-form__phone(type="text" name="phone" placeholder="Номер телефона" required)
+        label.order-form__label.order-form__label_city
+          input.order-form__input.order-form__city(type="text" name="city" placeholder="Ваш город")
+          p.order-form__text чтобы мы не звонили вам ночью
+      button.order-form__button.btn
+        span Оставить заявку
+    include ../components/car-interesting.pug

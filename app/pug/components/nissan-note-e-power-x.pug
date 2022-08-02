@@ -1,0 +1,84 @@
+-
+  var car = {
+    header: 'Nissan Note e-Power с аукционов Японии под заказ',
+    subheader: 'Полная пошлина | 2017 г | 83 085 км | 760 000 руб.',
+    params: [
+      { name: 'car', text: 'Nissan Note e-Power' },
+      { name: 'mileage', text: 'Пробег — 83 085 км.' },
+      { name: 'year', text: 'Выпуск — 2017 год' },
+      { name: 'auction', text: 'Аукцион — Mirive Osaka' },
+      { name: 'lot', text: 'Лот — 30621' },
+      { name: 'assessment', text: 'Оценка — 4,5 В/В' },
+      { name: 'bought', text: 'Купили — 611 000 ¥' },
+      { name: 'customs', text: 'Таможня — 220 000 ₽' },
+      { name: 'total', text: 'Итого — 760 000 ₽' },
+    ],
+    photos: [
+      'img/cars/nissan-note-e-power-x/01.jpg',
+      'img/cars/nissan-note-e-power-x/02.jpg',
+      'img/cars/nissan-note-e-power-x/03.jpg',
+      'img/cars/nissan-note-e-power-x/04.jpg',
+      'img/cars/nissan-note-e-power-x/05.jpg',
+      'img/cars/nissan-note-e-power-x/06.jpg',
+      'img/cars/nissan-note-e-power-x/07.jpg',
+      'img/cars/nissan-note-e-power-x/08.jpg',
+    ],
+    review: {
+      image: 'img/reviews-02.jpg',
+      name: 'Наталья',
+      info: 'Nissan Note e-Power куплен на аукционе в Японии и доставлен клиенту в РФ',
+      text: 'Это мой первый опыт покупки автомобиля через аукцион, поэтому с выбором компании заморочилась. Изучив отзывы, остановилась на компании ТрейдЛайн 100% не прогадала. <br>Автомобиль купили лучше чем хотела даже не ожидала что в мой бюджет это реально. Отдельное СПАСИБО Денису, он оперативно скидывал варианты автомобилей и переводы аукционных листов. <br>Процесс от покупки автомобиля в Японии до растаможки занял 28 дней. <br><br>Довольна покупкой полностью! РЕКОМЕНДУЮ!!!',
+      date: '06. 12. 2019'
+    }
+  }
+
+  var listChunks = [];
+  for (var i = 0; i < Math.ceil(car.params.length / 3); i++) {
+    listChunks.push(car.params.slice(3 * i, 3 * (i + 1)));
+  }
+
+.car#car.wow.fadeIn(data-wow-delay=".1s")
+  .container
+    h1.car__header.wow.fadeInUp(data-wow-delay=".2s") !{car.header}
+    p.car__subheader.wow.fadeInUp(data-wow-delay=".2s") !{car.subheader}
+    .car-tabs.tabs.wow.fadeInUp(data-wow-delay=".3s")
+      .car-tabs__inner.row.align-items-start
+        each content in car.photos
+          .car-tabs__content.tabs__content.col-md-8
+            img(src=content, alt="")
+        .car-tabs-controls.tabs-controls.col-md-4
+          each control in car.photos
+            .car-tabs__control.tabs__control
+              img(src=control, alt="")
+    .car-params.row
+      each chunk in listChunks
+        .car-params__part.col-lg-4.col-md-6
+          each param, index in chunk
+            .car__param(class="car__param_" + param.name) !{param.text}
+    .car-review.wow.fadeInUp(data-wow-delay=".1s")
+      h2.car-review__header Отзыв нашего клиента
+      .car-review__inner.row
+        .car-review__image-part.col-md-4
+          img.car-review__image(src=car.review.image, alt="")
+          .car-review__real Реальный владелец
+        .car-review__text-part.col-md-8
+          .car-review__text-part-top
+            p.car-review__name !{car.review.name}
+            p.car-review__info !{car.review.info}
+            .car-review__text !{car.review.text}
+            p.car-review__date !{car.review.date}
+    form.order-form.car-form.wow.fadeInUp(data-wow-delay=".1s" onsubmit="ym(71298799, 'reachGoal', 'ok_order'); return true;")
+      h2.car-form__header Хотите такой автомобиль?
+      input(type="hidden" name="act" value="order")
+      input.order-form__subject(type="hidden" name="subject" value=car.params[0].text)
+      .car-form__inner
+        label.order-form__label.order-form__label_name
+          input.order-form__input.order-form__name(type="text" name="name" placeholder="Ваше имя")
+        label.order-form__label.order-form__label_phone
+          input.order-form__input.order-form__phone(type="text" name="phone" placeholder="Номер телефона" required)
+        label.order-form__label.order-form__label_city
+          input.order-form__input.order-form__city(type="text" name="city" placeholder="Ваш город")
+          p.order-form__text чтобы мы не звонили вам ночью
+      button.order-form__button.btn
+        span Оставить заявку
+    include ../components/car-interesting.pug

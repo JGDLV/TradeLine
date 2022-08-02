@@ -1,0 +1,37 @@
+-
+  var instagram = {
+    header: 'Мы в инстаграм',
+    account: 'tradeline_jp',
+    items: [
+      { link: 'https://www.instagram.com/p/B9YtOFdCGTO/', image: 'img/instagram-01.jpg', },
+      { link: 'https://www.instagram.com/p/B9GLZzSoPUb/', image: 'img/instagram-02.jpg', },
+      { link: 'https://www.instagram.com/p/B8NPNRVouHm/', image: 'img/instagram-03.jpg', },
+      { link: 'https://www.instagram.com/p/B8F3MMeIiDh/', image: 'img/instagram-04.jpg', },
+      { link: 'https://www.instagram.com/p/B-D930ChaNK/', image: 'img/instagram-05.jpeg', },
+      { link: 'https://www.instagram.com/p/B7Z_uPCoNOM/', image: 'img/instagram-06.jpg', },
+      { link: 'https://www.instagram.com/p/B6hAXnwB61M/', image: 'img/instagram-07.jpg', },
+    ],
+  }
+
+.instagram#instagram.wow.fadeIn
+  .container
+    .instagram__top.wow.fadeInUp(data-wow-delay=".1s")
+      h2.instagram__header !{instagram.header}
+      a.instagram__account(href="https://instagram.com/" + instagram.account target="_blank") !{instagram.account}
+    .instagram-items.wow.fadeInUp(data-wow-delay=".2s")
+      .instagram-items__top
+        each item, index in instagram.items
+          if index < 4
+            a.instagram__item(href=item.link target="_blank")
+              img.instagram__item-image(src=item.image, alt='')
+      .instagram-items__bottom
+        .instagram-items__bottom-left
+          each item, index in instagram.items
+            if index == 4
+              a.instagram__item(href=item.link class="instagram__item_" + (index + 1) target="_blank")
+                img.instagram__item-image(src=item.image, alt='')
+        .instagram-items__bottom-right
+          each item, index in instagram.items
+            if index > 4
+              a.instagram__item(href=item.link class="instagram__item_" + (index + 1) target="_blank")
+                img.instagram__item-image(src=item.image, alt='')

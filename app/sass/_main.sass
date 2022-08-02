@@ -1,0 +1,1344 @@
+body
+  font-family: 'Oswald', sans-serif
+  color: #000
+  font-size: 18px
+  line-height: 1.23
+  font-weight: 400
+
+.btn
+  width: 245px
+  height: 60px
+  border-radius: 30px
+  position: relative
+  text-shadow: 0 1px 5px #860002
+  color: #fff
+  font-size: 24px
+  font-weight: 300
+  display: flex
+  justify-content: center
+  align-items: center
+  padding-bottom: 4px
+  background: none
+  &::before, &::after
+    +p
+      width: 100%
+      height: 100%
+      border-radius: 30px
+      top: 0
+      left: 0
+      z-index: 0
+      transition: .3s ease
+  &::before
+    background-image: linear-gradient(to top, #bc002d 0%, #840000 100%)
+  &::after
+    background-image: linear-gradient(to bottom, #bc002d 0%, #840000 100%)
+    opacity: 0
+  &:hover
+    &::after
+      opacity: 1
+  span
+    z-index: 10
+  &:active
+    &::before
+      box-shadow: inset 0 0 20px #2a0000
+    &::after
+      opacity: 0
+span
+  &.bold
+    font-weight: 700
+  &.red
+    color: #b50028
+
+.main-header
+  padding: 26px 0
+  background: #ececec url('../img/header-bg.png') no-repeat top center
+  background-size: cover
+  &__phone
+    padding-left: 5px
+    margin: 15px 0 0 auto
+    &-link
+      color: #202122
+      font-size: 16px
+      line-height: 1
+      &:hover
+        color: #b50028
+    &-text
+      color: #353535
+      font-size: 14px
+
+.logo
+  padding-left: 36px
+  margin-right: 66px
+  &__link
+    display: block
+    line-height: 0
+  &__image
+    width: 63px
+
+.main-menu
+  margin-top: 15px
+  &-items
+    background-color: #eeeff1
+    border-radius: 21px
+    overflow: hidden
+  &__item
+    flex-grow: 1
+    &:first-child
+      a
+        padding-left: 17px
+    &:nth-last-child(2)
+      a
+        padding-right: 17px
+    &:last-child
+      a
+        // background-image: linear-gradient(to top, #434444 0%, #1d1d1d 100%)
+        color: #fff
+        font-size: 16px
+        font-weight: 300
+        text-transform: uppercase
+        border-radius: 0 21px 21px 0
+        padding: 0 20px
+        position: relative
+        span
+          position: relative
+          z-index: 10
+        &::before, &::after
+          +p
+            width: 100%
+            height: 100%
+            top: 0
+            left: 0
+            z-index: 0
+            transition: .3s ease
+        &::before
+          background-image: linear-gradient(to top, #434444 0%, #1d1d1d 100%)
+        &::after
+          background-image: linear-gradient(to bottom, #bc002d 0%, #840000 100%)
+          opacity: 0
+        &:hover
+          &::after
+            opacity: 1
+  &__link
+    color: #1d1e1e
+    font-size: 16px
+    line-height: 41px
+    display: block
+    padding: 0 8.5px
+    &:hover
+      color: #b50028
+
+.intro
+  padding: 74px 0 22px
+  &__header
+    text-align: center
+    font-size: 72px
+    font-weight: 300
+    text-transform: uppercase
+    line-height: 1
+    margin-bottom: 16px
+    span
+      position: relative
+      &::after
+        +p
+          width: 64px
+          height: 59px
+          background: url('../img/sprite.svg#intro-header') no-repeat
+          background-size: 68px
+          top: -14px
+          right: -33px
+  &__subheader
+    text-align: center
+    font-size: 44px
+    font-weight: 300
+    text-transform: uppercase
+    line-height: 1
+    margin-bottom: 41px
+  .swiper-wrapper
+    align-items: center
+  .swiper-wrapper
+    min-height: 147px
+    transition: .6s ease !important
+  &-tabs
+    &-controls
+      // display: flex
+      // flex-wrap: wrap
+      // align-items: center
+      min-height: 147px
+    &__control
+      cursor: pointer
+      pointer-events: all !important
+      // flex-grow: 1
+      line-height: 0
+      &-image
+        width: 200px
+        opacity: .4
+        transition: .2s linear
+      &.swiper-slide-thumb-active
+        img
+          width: 240px
+          opacity: 1
+      &:hover
+        img
+          opacity: 1
+  &-tabs
+    &__content
+      min-height: 377px
+      &-inner
+        display: flex
+        flex-wrap: wrap
+        align-items: flex-start
+      &-image
+        &-part
+          width: 638px
+          // margin-left: -15px
+          display: block
+          line-height: 0
+      &-text-part
+        padding: 82px 0 0 53px
+        width: calc(100% - 638px)
+        box-sizing: border-box
+      &-name
+        font-size: 24px
+        font-weight: 300
+        margin-bottom: 4px
+      &-price
+        color: #bc002d
+        font-size: 24px
+        font-weight: 500
+        margin-bottom: 25px
+      &-button
+        width: 237px
+h2
+  font-size: 48px
+  line-height: 1.2
+  font-weight: 400
+  position: relative
+
+.what
+  padding: 46px 0 65px
+  background: url('../img/what-bg.jpg') no-repeat top center
+  background-size: cover
+  color: #ffffff
+  &__header
+    margin-bottom: 40px
+  &-items
+    margin-bottom: 27px
+  &__item
+    position: relative
+    height: 240px
+    margin-bottom: 36px
+    &_2
+      .what__item-text-part
+        color: #000
+        &::before
+          background-image: linear-gradient(to right, #fcba1e 0%, #fcba1e 37%, rgba(252, 186, 30, 0.9) 100%) !important
+        svg
+          fill: #000000 !important
+    &-image
+      border-radius: 15px
+      max-width: none
+      +tr
+      &-part
+        display: block
+        line-height: 0
+        position: absolute
+        top: 0
+        left: 15px
+        right: 15px
+        overflow: hidden
+        // width: 100%
+        border-radius: 15px
+        height: 100%
+    &-icon
+      width: 55px
+      height: 60px
+      fill: #f7f7f7
+      transition: .3s ease
+      position: relative
+      z-index: 10
+    &-name
+      display: block
+      margin-top: 10px
+      position: relative
+      z-index: 10
+    &-text-part
+      width: 207px
+      height: 240px
+      position: relative
+      display: block
+      color: #ffffff
+      font-size: 24px
+      line-height: 1.2
+      padding: 57px 0 0 33px
+      border-radius: 15px 0 0 15px
+      font-weight: 400
+      transition: .3s ease
+      &::before, &::after
+        +p
+          width: 100%
+          height: 100%
+          top: 0
+          left: 0
+          border-radius: 15px 0 0 15px
+          transition: .3s ease
+          z-index: 0
+      &::before
+        background-image: linear-gradient(to right, #000e39 0%, #000e39 37%, rgba(0, 14, 57, 0.9) 100%)
+      // &::after
+      //   background-image: linear-gradient(to right, #fcba1e 0%, #fcba1e 37%, rgba(252, 186, 30, 0.9) 100%)
+      //   opacity: 0
+    &:hover
+      // .what__item-text-part
+      //   color: #000000
+      //   &::after
+      //     opacity: 1
+      // svg
+      //   fill: #000000 !important
+      img
+        transform: scale(1.1)
+
+.today
+  padding: 56px 0 74px
+  background: url('../img/what-bg-bottom.png') no-repeat top right
+  &__header
+    line-height: normal
+    margin-bottom: 3px
+  &__subheader
+    font-size: 24px
+    line-height: normal
+    margin-bottom: 30px
+  &__list
+    line-height: 1
+    margin-bottom: 13px
+    &-item
+      margin-bottom: 4px
+      padding-left: 11px
+      position: relative
+      &::before
+        +p
+          width: 4px
+          height: 4px
+          border-radius: 50%
+          top: 8px
+          left: 1px
+          background: #ffffff
+      &:last-child
+        margin-bottom: 0
+  &__text
+    color: #fed05c
+    font-weight: 300
+    margin-bottom: 72px
+  &-form
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-start
+    &__label
+      width: 277px
+      // border-bottom: 2px solid #fff
+      margin: 15px 19px 0 0
+      position: relative
+      &::before
+        +p
+          top: 0
+          left: 0
+          width: 21px
+          height: 18px
+          top: 8px
+          background-size: contain
+      &_name
+        // padding-left: 33px
+        &::before
+          background: url('../img/sprite.svg#user') no-repeat
+          left: -1px
+      &_phone
+        // padding-left: 33px
+        &::before
+          background: url('../img/sprite.svg#phone') no-repeat
+          left: 0
+      input
+        color: #fff
+        width: 100%
+        background: none
+        font-size: 18px
+        font-weight: 300
+        line-height: 32px
+        padding: 0 15px 0 33px
+        border-bottom: 2px solid #fff
+        transition: .3s ease
+        &::placeholder
+          color: #fff
+        &:focus
+          border-bottom-color: #bc002d
+    &__button
+      width: 278px
+      margin-left: 8px
+
+.delivered
+  padding: 67px 0 51px
+  position: relative
+  background-color: #ececec
+  &::before
+    +p
+      width: 100%
+      height: 128px
+      top: 0
+      left: 0
+      background-image: linear-gradient(to bottom, #9fc0e1 0%, rgba(159, 192, 225, 0) 100%)
+  &__subheader
+    line-height: 1.2
+    font-size: 24px
+    margin-bottom: 43px
+  &-items
+    box-sizing: border-box !important
+  &__item
+    border-radius: 15px
+    border: 1px solid #e4e4e4
+    background-color: #fff
+    padding: 19px 22px 35px
+    height: calc((100% - 30px) / 2)
+    // height: 375px
+    color: #051942
+    display: block
+    &:hover
+      img
+        transform: scale(1.1)
+        opacity: .9
+    span
+      display: block
+    &-wrap
+      margin-bottom: 30px
+    &-image
+      width: 100%
+      height: 238px
+      object-fit: cover
+      border-radius: 5px
+      +tr
+      &-part
+        line-height: 0
+        overflow: hidden
+    &-text-part
+      display: flex !important
+      justify-content: space-between
+      align-items: flex-start
+      flex-wrap: wrap
+      padding-top: 24px
+    &-right
+      text-align: right
+    &-name
+      font-size: 20px
+      font-weight: 500
+      margin-bottom: 12px
+    &-price
+      color: #a7001c
+      font-size: 20px
+      font-weight: 500
+      margin-bottom: 13px
+  .swiper-container
+    height: 780px
+    padding-bottom: 61px
+    box-sizing: content-box
+  .swiper-pagination-bullet
+    width: 11px
+    height: 11px
+    border-radius: 50%
+    background-color: #9c9c9c
+    &-active
+      background-color: #4d5c90
+
+.profitable
+  padding: 85px 0 99px
+  background: url('../img/profitable-bg.jpg') no-repeat top center
+  background-size: cover
+  color: #ffffff
+  &__header
+    margin-bottom: 46px
+  &__text
+    p
+      font-size: 24px
+      line-height: 1.23
+      margin-bottom: 28px
+      &.yellow
+        color: #fed05c
+        margin-top: 35px
+  &__button
+    margin-top: 44px
+    padding-left: 48px
+    position: relative
+    span
+      &::before
+        +p
+          width: 41px
+          height: 35px
+          background: url('../img/sprite.svg#calculator') no-repeat
+          background-size: 100%
+          top: 17px
+          left: 49px
+
+.about
+  padding: 92px 0 84px
+  background: url('../img/about-bg.jpg') no-repeat top center
+  background-size: cover
+  &__header
+    font-size: 72px
+    font-weight: 300
+    text-transform: uppercase
+    margin-bottom: 31px
+  &__text
+    margin-bottom: 36px
+    p
+      font-size: 20px
+      line-height: 1.2
+  &__button
+    width: 208px
+    margin-bottom: 40px
+    padding-left: 24px
+    position: relative
+    span
+      &::before
+        +p
+          width: 23px
+          height: 20px
+          background: url('../img/sprite.svg#phone') no-repeat
+          background-size: 100%
+          top: 21px
+          left: 42px
+  &-items
+    border-radius: 15px
+    background-color: rgba(#05173f, .7)
+    padding-bottom: 28px
+  &__item
+    color: #ffffff
+    padding: 47px 0 0 55px !important
+    margin-bottom: 21px
+    &-image
+      &_1
+        width: 69px
+      &_2
+        width: 65px
+        margin: -3px 0 0 -9px
+      &_3
+        width: 62px
+        margin: -4px 0 0 -5px
+      &_4
+        width: 64px
+        margin: -5px 0 0 -5px
+      &_5
+        width: 59px
+        margin: 0px 0 0 -11px
+      &_6
+        width: 58px
+        margin: 3px 0 0 -3px
+      &_7
+        width: 57px
+        margin: 3px 0 0 -3px
+      &_8
+        width: 70px
+        margin: -8px 0 0 -12px
+      &_9
+        width: 71px
+        margin: -1px 0 0 5px
+      &-part
+        height: 63px
+        line-height: 0
+        margin-bottom: 2px
+    &-header
+      font-size: 24px
+      line-height: 1
+      margin-bottom: 1px
+    &-text
+      font-weight: 300
+
+.scheme
+  padding: 78px 0 56px
+  background: url('../img/scheme-bg.jpg') no-repeat top center
+  background-size: cover
+  &__header
+    margin-bottom: 56px
+  &-items
+    margin-bottom: 53px
+    counter-reset: scheme
+  &__item
+    display: flex
+    align-items: flex-start
+    padding-left: 45px
+    margin-bottom: 50px
+    position: relative
+    &::before
+      +p
+        content: counter(scheme) !important
+        counter-increment: scheme
+        color: #b6cde4
+        font-size: 48px
+        top: -2px
+        left: 0
+    &:last-child
+      margin-bottom: 0
+    &-image
+      &_1
+        width: 64px
+      &_2
+        width: 71px
+        margin: -3px 0 0 4px
+      &_3
+        width: 59px
+        margin: 16px 0 0 -1px
+      &_4
+        width: 71px
+        margin: -3px 0 0 -5px
+      &_5
+        width: 71px
+        margin: -2px 0 0 -4px
+      &_6
+        width: 68px
+        margin: 9px 0 0 -4px
+      &_7
+        width: 64px
+        margin: 1px 0 0 1px
+      &-part
+        width: 98px
+    &-header
+      font-size: 24px
+      color: #b50028
+    &-text
+      font-weight: 300
+      margin-top: -2px
+      &-part
+        width: calc(100% - 98px)
+        margin-top: -10px
+  &__button
+    margin-left: 142px
+    width: 238px
+
+.reviews
+  padding: 92px 0 80px
+  background: url('../img/reviews-bg.jpg') no-repeat top center
+  background-size: cover
+  color: #ffffff
+  &__header
+    margin-bottom: 57px
+  &__item
+    border-radius: 15px
+    background-color: #fff
+    background-image: linear-gradient(to top, #c5d9ed 0%, #fff 20%, #fff 100%)
+    min-height: 821px
+    opacity: .5
+    &.swiper-slide-active,
+    &.swiper-slide-prev
+      opacity: 1
+    &-image
+      border-radius: 15px 15px 0 0
+      width: 100%
+      &-part
+        line-height: 0
+    &-text
+      color: #000
+      &-part
+        padding: 35px 36px 0
+        &-top
+          display: flex
+          justify-content: space-between
+          align-items: flex-start
+          flex-wrap: wrap
+          margin-bottom: 11px
+    &-name
+      color: #002674
+      font-size: 24px
+    &-date
+      color: #9d9d9d
+      font-weight: 300
+      margin-top: 6px
+  .swiper-pagination-bullet
+    width: 11px
+    height: 11px
+    background-color: #7598bb
+    border-radius: 50%
+    &-active
+      background-color: #fff
+  .swiper-container
+    padding-bottom: 93px
+
+.instagram
+  padding: 75px 0 104px
+  background-color: #ececec
+  &__top
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 56px
+  &__account
+    color: #051942
+    font-size: 24px
+    font-weight: 300
+    margin-top: 22px
+    position: relative
+    padding-left: 29px
+    &::before
+      +p
+        width: 21px
+        height: 21px
+        background: url('../img/instagram.png') no-repeat
+        top: 6px
+        left: 0
+  &-items
+    &__top
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: flex-start
+      margin-bottom: 15px
+    &__bottom
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: flex-start
+      &-left
+        width: 863px
+      &-right
+        width: 273px
+        display: flex
+        flex-direction: column
+  &__item
+    display: block
+    line-height: 0
+    width: 273.75px
+    height: 273.75px
+    position: relative
+    &::before
+      +p
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        background: rgba(#000, .6) url('../img/sprite.svg#instagram-big') no-repeat center
+        background-size: 64px
+        transition: .3s ease
+        opacity: 0
+    &:hover
+      &::before
+        opacity: 1
+    &-image
+      width: 100%
+      height: 100%
+      object-fit: cover
+    &_5
+      width: 852px
+      height: 562px
+    &_6
+      margin-bottom: 15px
+
+.cost
+  padding: 67px 0 72px
+  background: url('../img/cost-bg.jpg') no-repeat top center
+  background-size: cover
+  &__header
+    line-height: normal
+    margin-bottom: 3px
+  &__subheader
+    font-size: 24px
+    line-height: normal
+    margin-bottom: 50px
+  &-form
+    max-width: 790px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    &__label
+      width: 220px
+      margin-bottom: 48px
+      // border-bottom: 2px solid #051942
+      position: relative
+      &::before
+        +p
+          background-size: contain
+          background-repeat: no-repeat !important
+      &_model
+        input
+          padding-left: 62px
+        &::before
+          background: url('../img/sprite.svg#form-model')
+          width: 47px
+          height: 38px
+          top: -4px
+          left: 2px
+      &_volume
+        input
+          padding-left: 35px
+        &::before
+          background: url('../img/sprite.svg#form-volume')
+          width: 27px
+          height: 23px
+          top: 2px
+          left: -2px
+      &_year
+        input
+          padding-left: 32px
+        &::before
+          background: url('../img/sprite.svg#form-year')
+          width: 23px
+          height: 20px
+          top: 4px
+          left: -1px
+      &_name
+        input
+          padding-left: 30px
+        &::before
+          background: url('../img/sprite.svg#form-name')
+          width: 20px
+          height: 17px
+          top: 8px
+          left: 0px
+      &_phone
+        input
+          padding-left: 30px
+        &::before
+          background: url('../img/sprite.svg#form-phone')
+          width: 21px
+          height: 18px
+          top: 7px
+          left: -1px
+      &_email
+        input
+          padding-left: 37px
+        &::before
+          background: url('../img/sprite.svg#form-email')
+          width: 20px
+          height: 17px
+          top: 10px
+          left: 1px
+      input
+        width: 100%
+        background: none
+        color: #051942
+        font-size: 18px
+        font-weight: 300
+        line-height: 33px
+        border-bottom: 2px solid #051942
+        &::placeholder
+          color: #051942
+        &:focus
+          border-bottom-color: #bc002d
+    &__button
+      width: 220px
+      margin-top: 8px
+  &__image
+    display: block
+    margin: -146px -148px 0 auto
+
+.main-footer
+  // background-color: #051942
+  background-color: #1a1a1a
+  // padding: 50px 0 25px
+  padding: 42px 0 22px
+  &__top
+    &-right
+      // text-align: right
+      padding-right: 29px
+      padding: 1px 43px 15px 0
+  &__bottom
+    // padding-top: 74px
+    padding-top: 3px
+    &-inner
+      justify-content: center
+      // font-size: 16px
+      font-size: 14px
+      // color: #294b90
+      color: #404140
+      a
+        // color: #294b90
+        color: #404140
+        &:hover
+          color: #ffffff
+      & > *
+        // margin: 0 32px
+        margin: 0 48px
+
+.footer
+  &__link, &__address
+    color: #fff
+    line-height: 36px
+    padding-left: 32px
+    position: relative
+    &::before
+      +p
+        width: 17px
+        height: 17px
+        top: 0
+        left: 0
+  &__link
+    &:hover
+      opacity: .7
+    &_login
+      padding-left: 40px
+      position: relative
+      &::before
+        +p
+          width: 17px
+          height: 14px
+          background: url('../img/sprite.svg#login') no-repeat
+          background-size: 17px
+          top: 7px
+          left: 16px
+  &__phone
+    &::before
+      background: url('../img/sprite.svg#phone-filled') no-repeat
+      top: 6px
+      left: 1px
+  &__email
+    &::before
+      background: url('../img/sprite.svg#email') no-repeat
+      background-size: 16px
+      top: 8px
+      left: 1px
+  &__address
+    &::before
+      background: url('../img/sprite.svg#address') no-repeat
+      background-size: 20px
+      top: 10px
+      left: -1px
+  &__button
+    height: 51px
+    border-radius: 26px
+    font-size: 18px
+    margin: 0 0 22px auto
+
+.socials
+  // display: flex
+  // flex-wrap: wrap
+  // justify-content: flex-end
+  // padding: 0 10px 0 99px
+  padding: 6px 0 0 16px
+  &__item
+    color: #fff
+    line-height: 1
+    padding-left: 25px
+    position: relative
+    // margin-left: 56px
+    margin-bottom: 16px
+    width: 100%
+    display: inline-block
+    // &:first-child
+      // margin-left: 0
+    &:last-child
+      margin-bottom: 0
+    &::before
+      +p
+        width: 19px
+        height: 18px
+        background: #ffffff
+        top: 1px
+        left: -1px
+    &_Instagram
+      &::before
+        background: url('../img/sprite.svg#instagram2') no-repeat
+    &_WhatsApp
+      &::before
+        background: url('../img/sprite.svg#whatsapp') no-repeat
+        top: 2px
+        left: 0
+        background-size: 19px
+    &:hover
+      opacity: .7
+
+#top
+  background-image: linear-gradient(to top, #bc002d 0%, #840000 100%)
+  text-shadow: 0 1px 5px #860002
+  color: #fff
+
+.modal
+  width: 1140px
+  border-radius: 15px
+  background-color: #fff
+  padding: 93px 66px 66px
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-start
+  margin: auto
+  position: relative
+  .mfp-close
+    font-size: 0
+    width: 30px
+    height: 30px
+    top: 23px
+    right: 23px
+    &::before, &::after
+      +p
+        width: 42px
+        height: 1px
+        background: #486ee4
+        top: 14px
+        left: -6px
+    &::before
+      transform: rotate(45deg)
+    &::after
+      transform: rotate(-45deg)
+  &__header
+    font-size: 24px
+    font-weight: 400
+    text-transform: uppercase
+    margin-bottom: 26px
+  &__text
+    font-size: 20px
+    font-weight: 400
+    padding-right: 35px
+    margin-bottom: 54px
+    &-part
+      width: calc(100% - 387px)
+  &__image
+    border-radius: 15px
+  &__image-part
+    width: 387px
+    height: 258px
+    margin-top: 6px
+  &__button
+    width: 272px
+    height: 48px
+    border-radius: 24px
+    font-size: 20px
+  .swiper-pagination-bullet
+    width: 11px
+    height: 11px
+    border-radius: 50%
+    background-color: #9c9c9c
+    margin: 0 4.5px !important
+    &-active
+      background-color: #4d5c90
+  .swiper-container
+    padding-bottom: 74px
+  .swiper-button-next, .swiper-button-prev
+    margin: 0 !important
+    top: auto !important
+    bottom: 70px
+    color: rgba(#ffffff, .5)
+    transition: .3s ease
+    font-weight: 700
+    &:hover
+      color: #ffffff
+    &::after
+      font-size: 20px !important
+  .swiper-button-prev
+    left: 0
+  .swiper-button-next
+    right: 0
+  &-order
+    z-index: 40
+    padding: 66px 80px 80px
+    width: 389px
+    // position: absolute
+    // top: 50px
+    // left: 50%
+    // transform: translateX(-50%)
+    position: relative
+    margin: auto
+
+.order-form
+  width: 100%
+  &__label
+    position: relative
+    width: 100%
+    margin-bottom: 34px
+    display: block
+    &::before
+      +p
+        background-size: contain
+        background-repeat: no-repeat !important
+    &_name
+      input
+        padding-left: 30px
+      &::before
+        background: url('../img/sprite.svg#form-name')
+        width: 20px
+        height: 17px
+        top: 8px
+        left: 0px
+    &_phone
+      input
+        padding-left: 30px
+      &::before
+        background: url('../img/sprite.svg#form-phone')
+        width: 21px
+        height: 18px
+        top: 7px
+        left: -1px
+    &_city
+      margin-bottom: 6px
+      input
+        padding-left: 30px
+      &::before
+        background: url('../img/sprite.svg#city')
+        width: 21px
+        height: 18px
+        top: 7px
+        left: -1px
+  &__input
+    width: 100%
+    background: none
+    color: #051942
+    font-size: 18px
+    font-weight: 300
+    line-height: 33px
+    border-bottom: 2px solid #051942
+    &::placeholder
+      color: #051942
+    &:focus
+      border-bottom-color: #bc002d
+  &__text
+    color: #9c9c9c
+    font-size: 14px
+    font-weight: 300
+    margin-bottom: 39px
+  &__button
+    width: 100%
+    height: 48px
+    border-radius: 24px
+    font-size: 20px
+
+.mfp-bg
+  background-color: rgba(#051942, .8)
+
+.inner
+  background: #eee url('../img/inner-bg.png') no-repeat top center
+  background-size: cover
+  .main-header
+    padding-top: 40px
+    background: none
+
+.car
+  color: #051942
+  padding: 23px 0 24px
+  &__header
+    font-size: 48px
+    font-weight: 400
+    line-height: normal
+    margin-bottom: 10px
+  &__subheader
+    color: #a1a1a1
+    font-size: 18px
+    line-height: normal
+    margin-bottom: 41px
+
+  &-tabs
+    margin-bottom: 68px
+    &__content
+      line-height: 0
+      img
+        width: 100%
+        max-height: 526px
+        border-radius: 15px
+    &-controls
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      align-items: flex-start
+      margin-bottom: -20px
+    &__control
+      width: calc(50% - 15px)
+      height: 116px
+      margin-bottom: 20px
+      cursor: pointer
+      line-height: 0
+      +tr
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        border-radius: 15px
+      &:hover, &.active
+        opacity: .8
+
+  &-params
+    &__part
+      position: relative
+      &::before
+        +p
+          width: 2px
+          height: calc(100% - 18px)
+          top: 10px
+          left: 15px
+          background: #051942
+  &__param
+    font-size: 24px
+    line-height: normal
+    margin-bottom: 22px
+    padding-left: 67px
+    position: relative
+    &::before
+      +p
+        top: 0
+        left: 0
+        width: 30px
+        height: 40px
+        background-size: contain
+        background-repeat: no-repeat
+    &_car
+      &::before
+        width: 41px
+        background-image: url('../img/sprite.svg#car-name')
+        background-size: 41px
+        top: 4px
+        left: 15px
+    &_mileage
+      &::before
+        width: 32px
+        background-image: url('../img/sprite.svg#car-mileage')
+        top: 6px
+        left: 19px
+    &_year
+      &::before
+        width: 29px
+        background-image: url(../img/sprite.svg#car-year)
+        top: 3px
+        left: 21px
+    &_auction
+      &::before
+        width: 34px
+        background-image: url(../img/sprite.svg#car-auction)
+        top: 7px
+        left: 17px
+    &_lot
+      &::before
+        width: 30px
+        background-image: url(../img/sprite.svg#car-lot)
+        top: 7px
+        left: 19px
+    &_assessment
+      &::before
+        width: 29px
+        background-image: url(../img/sprite.svg#car-assessment)
+        top: 3px
+        left: 20px
+    &_bought
+      &::before
+        width: 27px
+        background-image: url(../img/sprite.svg#car-bought)
+        top: 10px
+        left: 21px
+    &_customs
+      &::before
+        width: 34px
+        background-image: url(../img/sprite.svg#car-customs)
+        top: 4px
+        left: 17px
+    &_total
+      &::before
+        width: 30px
+        background-image: url(../img/sprite.svg#car-total)
+        top: 2px
+        left: 22px
+    &:last-child
+      margin-bottom: 0
+
+  &-review
+    padding: 98px 0 0
+    margin-bottom: 69px
+    &__header
+      margin-bottom: 36px
+    &__image
+      background: #ddd
+      border-radius: 15px
+      width: 100%
+      // height: 230px
+      &-part
+        position: relative
+    &__real
+      width: 191px
+      height: 33px
+      line-height: 33px
+      border-radius: 17px
+      background-color: #fff
+      color: #46a501
+      padding-left: 39px
+      position: absolute
+      top: 9px
+      right: 25px
+      &::before
+        +p
+          width: 22px
+          height: 20px
+          background: url('../img/sprite.svg#check-green') no-repeat
+          background-size: 23px
+          top: 7px
+          left: 6px
+    &__text
+      font-size: 20px
+      font-weight: 300
+      padding: 7px 0 17px
+      &-part
+        margin-top: 7px
+        &-top
+          display: flex
+          flex-wrap: wrap
+          align-items: flex-end
+    &__name
+      font-size: 24px
+      line-height: normal
+      margin-right: 13px
+    &__info
+      color: #808080
+      font-weight: 300
+      line-height: normal
+      margin-bottom: 2px
+    &__date
+      color: #808080
+      font-weight: 300
+
+  &-form
+    border-radius: 15px
+    background-color: #fff
+    padding: 53px 0 60px
+    margin: 69px 0 65px
+    &__header
+      text-align: center
+      color: #a7001c
+      margin-bottom: 58px
+      padding: 0 20px
+    &__inner
+      display: flex
+      flex-wrap: wrap
+      justify-content: center
+      align-items: flex-start
+      padding: 0 60px
+    label
+      max-width: 225px
+      margin-right: 68px
+      &:last-of-type
+        margin-right: 0
+    .order-form__label_city
+      margin-bottom: 1px
+    .order-form__text
+      margin-top: 5px
+    button
+      width: 360px
+      height: 78px
+      border-radius: 39px
+      margin: auto
+      font-size: 34px
+      &::before, &::after
+        border-radius: 39px
+
+  &-interesting
+    color: #051942
+    &__header
+      font-size: 30px
+      line-height: normal
+      text-align: center
+      margin-bottom: 33px
+    .delivered__item
+      height: auto
+      padding: 14px 15px 26px
+      &-text-part
+        padding-top: 16px
+      &-image
+        height: 174px
+        border-radius: 5px
+      &-name
+        color: #000
+        font-size: 16px
+        margin-bottom: 7px
+      &-year
+        font-size: 14px
+      &-price
+        font-size: 16px
+        margin-bottom: 8px
+      &-mileage
+        font-size: 14px

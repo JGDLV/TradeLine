@@ -1,0 +1,32 @@
+block variables
+  -
+    var title = 'title'
+    var description = 'description'
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    title= title
+    meta(name='description' content=description)
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='preconnect' href='https://fonts.gstatic.com')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap')
+    link(rel='stylesheet' href='css/libs.min.css')
+    link(rel='stylesheet' href='css/style.css')
+    <!-- Yandex.Metrika counter -->
+    script
+      include components/metrika.js 
+    <noscript><div><img src="https://mc.yandex.ru/watch/71298799" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+  body(class=index ? '' : 'inner')
+    header.main-header.wow.fadeIn
+      include components/header/header.pug
+    main.main-content
+      block content
+    footer.main-footer.wow.fadeIn
+      include components/footer/footer.pug
+    include components/modals.pug
+    #top.fas.fa-arrow-up.a-drop
+    script(src='js/libs.min.js')
+    script(src='js/scripts.js')

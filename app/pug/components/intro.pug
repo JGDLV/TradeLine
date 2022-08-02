@@ -1,0 +1,56 @@
+-
+  var intro = {
+    header: 'Компания <span class="bold">TradeLine</span>',
+    subheader: 'привоз авто с аукционов <span class="bold">Японии</span>',
+    items: [
+      {
+        image: 'img/intro-image-01.png',
+        name: 'Nissan Leaf',
+        price: '350 000',
+      },
+      {
+        image: 'img/intro-image-02.png',
+        name: 'Honda Fit',
+        price: '600 000',
+      },
+      {
+        image: 'img/intro-image-03.png',
+        name: 'Nissan Note',
+        price: '550 000',
+      },
+      {
+        image: 'img/intro-image-04.png',
+        name: 'Toyota Land Cruiser Prado',
+        price: '2 500 000',
+      },
+      {
+        image: 'img/intro-image-05.png',
+        name: 'Subaru XV',
+        price: '1 250 000',
+      },
+    ]
+  }
+
+.intro#intro
+  .container
+    h1.intro__header !{intro.header}
+    p.intro__subheader !{intro.subheader}
+    //- .tabs.intro-tabs
+    .swiper-container.gallery-top.wow.zoomIn
+      .swiper-wrapper
+        each item in intro.items
+          .tabs__content.intro-tabs__content.swiper-slide
+            .intro-tabs__content-inner
+              .intro-tabs__content-image-part
+                img.intro-tabs__content-image(src=item.image, alt=item.name)
+              .intro-tabs__content-text-part
+                p.intro-tabs__content-name !{item.name}
+                p.intro-tabs__content-price от !{item.price} ₽
+                a.intro-tabs__content-button.btn(href="#order" data-subject="Заявка на " + item.name)
+                  span Оставить заявку
+      //- .tabs-controls.intro-tabs-controls
+      .swiper-container.gallery-thumbs
+        .swiper-wrapper
+          each control in intro.items
+            .tabs__control.intro-tabs__control.swiper-slide
+              img.intro-tabs__control-image(src=control.image, alt=control.name)

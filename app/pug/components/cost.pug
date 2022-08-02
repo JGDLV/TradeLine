@@ -1,0 +1,30 @@
+-
+  var cost = {
+    header: 'Расчет стоимости автомобиля',
+    subheader: 'Укажите информацию о автомобиле, который вы хотите купить с аукционов Японии. <br>Мы рассчитаем актуальные цены с учетом пошлин на данный автомобиль и свяжемся с вами!',
+    image: 'img/cost-image.png',
+    form: [
+      { title: 'model', placeholder: 'Марка и модель авто', required: false },
+      { title: 'volume', placeholder: 'Объем двигателя', required: false },
+      { title: 'year', placeholder: 'Год', required: false },
+      { title: 'name', placeholder: 'Введите ваше имя', required: false },
+      { title: 'phone', placeholder: 'Ваш номер телефона', required: true },
+      { title: 'email', placeholder: 'E-mail', required: false },
+    ]
+  }
+
+.cost#cost.wow.fadeIn
+  .container
+    h2.cost__header.wow.fadeInUp(data-wow-delay=".1s") !{cost.header}
+    p.cost__subheader.wow.fadeInUp(data-wow-delay=".2s") !{cost.subheader}
+    form.cost-form.wow.fadeInUp(data-wow-delay=".3s")
+      input(type="hidden" name="act" value="cost")
+      each input in cost.form
+        label.cost-form__label(class="cost-form__label_" + input.title)
+          if input.required
+            input.cost-form__input(class="cost-form__input_" + input.title type="text" name=input.title placeholder=input.placeholder required)
+          else
+            input.cost-form__input(class="cost-form__input_" + input.title type="text" name=input.title placeholder=input.placeholder)
+      button.cost-form__button.btn(type="submit")
+        span Расчитать
+    img.cost__image.wow.fadeInRight(src=cost.image, alt="" data-wow-delay=".3s")

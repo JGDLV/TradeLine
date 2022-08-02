@@ -1,0 +1,85 @@
+-
+  var about = {
+    header: 'Компания <span class="bold red">TradeLine</span>',
+    texts: [
+      'TradeLine – поставщик автомобилей и спецтехники с аукционов Японии и Кореи.',
+      'Работаем без посредников – имеем представительство в г. Йокогаме.',
+      'Занимаемся импортом автомобилей уже более 3-х лет.',
+      '<br>Офисы  в г. Владивосток и г. Находка.',
+    ],
+    button: { href: '#order', text: 'Связаться' },
+    items: [
+      {
+        image: 'img/sprite.svg#about-01',
+        header: 'Работа без посредников',
+        text: 'Официальные дилеры в Японии. <br>Поставляем автомобили с 120 аукционов.',
+        width: '69'
+      },
+      {
+        image: 'img/sprite.svg#about-02',
+        header: 'Минимальная комиссия',
+        text: 'Полное сопровождение сделки обойдется <br>всего в 20 000 руб.',
+        width: '54'
+      },
+      {
+        image: 'img/sprite.svg#about-03',
+        header: 'Прозрачность платежей',
+        text: 'Только честная и открытая информация <br>и полная прозрачность денежных переводов.',
+        width: '60'
+      },
+      {
+        image: 'img/sprite.svg#about-04',
+        header: 'Подробная проверка авто',
+        text: 'Осуществляем покупку после инспекции <br>о состоянии авто.',
+        width: '56'
+      },
+      {
+        image: 'img/sprite.svg#about-05',
+        header: 'Быстрые сроки доставки',
+        text: 'От покупки до доставки в РФ (13-18 дней) <br>в зависимости от удаленности аукциона от порта.',
+        width: '47'
+      },
+      {
+        image: 'img/sprite.svg#about-06',
+        header: 'Безопасность сделки',
+        text: 'Наша техника застрахована на 100% <br>стоимости, на всех этапах пути.',
+        width: '44'
+      },
+      {
+        image: 'img/sprite.svg#about-07',
+        header: 'Восточный сервис',
+        text: 'Личный менеджер займется подбором авто <br>для вас, как для себя! Ответим на все вопросы.',
+        width: '49'
+      },
+      {
+        image: 'img/sprite.svg#about-08',
+        header: 'Отслеживание авто онлайн',
+        text: 'По номеру кузова можно отследить статус <br>и местонахождение.',
+        width: '58'
+      },
+      {
+        image: 'img/sprite.svg#about-09',
+        header: 'Доставка по РФ',
+        text: 'Помощь в отправке автомобилей в любой <br>регион России. Выбор ТК, погрузка.',
+        width: '71'
+      },
+    ]
+  }
+
+
+.about#about.wow.fadeIn
+  .container
+    h2.about__header.wow.fadeInUp(data-wow-delay=".1s") !{about.header}
+    .about__text.wow.fadeInUp(data-wow-delay=".2s")
+      each text in about.texts
+        p !{text}
+    a.about__button.btn.wow.fadeInUp(href=about.button.href data-subject="Заявка" data-wow-delay=".3s")
+      span !{about.button.text}
+    .about-items.row.no-gutters.wow.fadeInUp(data-wow-delay=".3s")
+      each item, index in about.items
+        .about__item.col-md-4.col-sm-6
+          .about__item-image-part
+            img.about__item-image(src=item.image, alt='' class='about__item-image_' + (index + 1))
+          .about__item-text-part
+            p.about__item-header !{item.header}
+            p.about__item-text !{item.text}

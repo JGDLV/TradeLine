@@ -1,0 +1,38 @@
+-
+  var footer = {
+    email: 'info@tr-line.org',
+    address: 'г. Находка, ул. Сенявина 18, офис 2',
+    socials: [
+      { name: 'WhatsApp', href: '#', image: 'img/sprite.svg#whatsapp' },
+      { name: 'Instagram', href: 'https://instagram.com/tradeline_jp', image: 'img/sprite.svg#instagram' },
+    ],
+    button: { href: '#', text: 'Вход в личный кабинет' },
+    bottom: {
+      copyright: 'ООО “ТРЕЙДЛАЙН”',
+      privacy: { href: '#', text: 'Политика конфиденциальности' },
+      madeby: 'Разработка AgentFox'
+    }
+  }
+
+.main-footer__top
+  .container
+    .main-footer__top-inner.row.justify-content-between
+      .main-footer__top-left.col-md-6
+        p
+          a.footer__link.footer__phone(href='tel:+' + clearPhone(header.phone.number)) !{header.phone.number}
+        p
+          a.footer__link.footer__email(href='mailto:' + footer.email) !{footer.email}
+        p.footer__address !{footer.address}
+      .main-footer__top-right.col-xl-3.col-md-6
+        a.footer__link.footer__link_login(href=footer.button.href) !{footer.button.text}
+        //- a.footer__button.btn(href=footer.button.href)
+          span !{footer.button.text}
+        .socials
+          each social in footer.socials
+            a.socials__item(href=social.href class='socials__item_' + social.name) !{social.name}
+.main-footer__bottom
+  .container
+    .main-footer__bottom-inner.row
+      p !{footer.bottom.copyright}
+      a(href=footer.bottom.privacy.href) !{footer.bottom.privacy.text}
+      p !{footer.bottom.madeby}

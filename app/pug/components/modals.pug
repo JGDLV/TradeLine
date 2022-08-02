@@ -1,0 +1,81 @@
+-
+  var whatModals = [
+    {
+      id: 'electric_cars',
+      header: 'Электромобили с Японии',
+      text: 'На сегодняшний день самый выгодный вариант ввоза автомобиля из Японии – купить автомобиль с электродвигателем.  Для электрокаров в 2020 были отменены все ввозные пошлины. Покупателю необходимо оплатить только НДС, утилизационный сбор, услуги брокера и транспортные расходы из Японии в Россию. <br><br>Мы можем подобрать и привезти для вас следующие электрокары:  Nissan Leaf, Nissan e-NV200, Mitsubishi I-MiEV и Mitsubishi Minicab MiEV.',
+      subject: 'Электромобили',
+      images: [
+        'img/cars/electric-cars/01.JPG',
+        'img/cars/electric-cars/02.JPG',
+        'img/cars/electric-cars/03.JPG',
+        'img/cars/electric-cars/04.JPG',
+      ]
+    },
+    {
+      id: 'special_equipment',
+      header: 'Спецтехника из Японии',
+      text: 'Мы можем импортировать для вас любую спецтехнику из Японии: грузовики и самосвалы, прицепы и полуприцепы, краны и манипуляторы, автовышки, трактора, экскаваторы, бульдозеры, погрузчики. <br><br>Наиболее выгодный вид ввоза спецтехники – “конструктор” или “распил”. Такую технику официально поставить на учет в РФ нельзя. Однако все узлы и навесное оборудование (автокраны, автовышки, буровые и т.д.) можно установить на свою раму с документами. ',
+      subject: 'Спецтехника',
+      images: [
+        'img/cars/special-equipment/01.jpg',
+        'img/cars/special-equipment/02.jpg',
+        'img/cars/special-equipment/03.jpg',
+        'img/cars/special-equipment/04.jpg',
+        'img/cars/special-equipment/05.jpg',
+      ]
+    },
+    {
+      id: 'full_duty',
+      header: 'Авто под полную пошлину с Японии',
+      text: 'Компания TradeLine поставляет автомобили с аукционов Японии под полную пошлину по вашим запросам. Наши менеджеры помогут с подбором авто вашей мечты! <br><br>При подборе автомобиля мы обращаем внимание на все детали, подскажем, какой автомобиль лучше купить, а от какого лучше отказаться, рассчитаем заранее стоимость ТС с учетом пошлины и других расходов. <br><br>Для постановки на учет в РФ мы поставляем машины с 2010 по 2021гг. выпуска.',
+      subject: 'Полная пошлина',
+      images: [
+        'img/cars/full-duty/01.jpg',
+        'img/cars/full-duty/02.jpg',
+        'img/cars/full-duty/03.jpg',
+      ]
+    },
+    {
+      id: 'constructors',
+      header: 'Ввоз авто конструктором или распилом из Японии',
+      text: 'Конструктор – это один из способов ввоза автомобилей на территорию России с целью снижения таможенной пошлины. При оформлении конструктора кузов остается целым. <br><br>Конструктор идеально подойдет тем, у кого уже есть этой же марки автомобиль, но в связи с износом запчастей, требует большого количества денег на восстановление. Особенно актуально для джипов и грузовиков, где номерным агрегатом является рама. <br><br>Распил – это такой же способ ввоза автомобиля, но вместо разбора (конструктора) автомобиль распиливают по передним или задним стойкам автомобиля. Обходится дешевле, чем конструктор.',
+      subject: 'Конструкторы',
+      images: [
+        'img/cars/constructors/01.jpg',
+        'img/cars/constructors/02.jpg',
+        'img/cars/constructors/03.jpg',
+        'img/cars/constructors/04.jpg',
+      ]
+    },
+  ]
+
+each modal in whatModals
+  .modal.mfp-hide(id=modal.id)
+    .modal__text-part
+      h2.modal__header !{modal.header}
+      p.modal__text !{modal.text}
+      a.modal__button.btn(href="#order" data-subject=modal.subject)
+        span Оставить заявку
+    .modal__image-part
+      .swiper-container
+        .swiper-wrapper
+          each image in modal.images
+            img.modal__image.swiper-slide(src=image, alt="")
+        .swiper-pagination
+        .swiper-button-prev
+        .swiper-button-next
+
+.modal.modal-order#order.mfp-hide
+  form.order-form(onsubmit="ym(71298799, 'reachGoal', 'ok_order'); return true;")
+    input(type="hidden" name="act" value="order")
+    input.order-form__subject(type="hidden" name="subject" value="order")
+    label.order-form__label.order-form__label_name
+      input.order-form__input.order-form__name(type="text" name="name" placeholder="Ваше имя")
+    label.order-form__label.order-form__label_phone
+      input.order-form__input.order-form__phone(type="text" name="phone" placeholder="Номер телефона" required)
+    label.order-form__label.order-form__label_city
+      input.order-form__input.order-form__city(type="text" name="city" placeholder="Ваш город")
+    p.order-form__text чтобы мы не звонили вам ночью
+    button.order-form__button.btn
+      span Оставить заявку

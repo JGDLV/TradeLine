@@ -1,0 +1,83 @@
+-
+  var what = {
+    header: 'Что возим',
+    items: [
+      {
+        icon: 'img/sprite.svg#what-01',
+        name: 'Электрокары',
+        image: 'img/what-01.png',
+        href: '#electric_cars',
+        goal: 'order_electro'
+      },
+      {
+        icon: 'img/sprite.svg#what-02',
+        name: 'Спецтехника',
+        image: 'img/what-02.png',
+        href: '#special_equipment',
+        goal: 'order_techika'
+      },
+      {
+        icon: 'img/sprite.svg#what-03',
+        name: 'Полная пошлина<br>2010 — 2021',
+        image: 'img/what-03.png',
+        href: '#full_duty',
+        goal: 'order_poshlina'
+      },
+      {
+        icon: 'img/sprite.svg#what-04',
+        name: 'Конструкторы<br>Распилы',
+        image: 'img/what-04.png',
+        href: '#constructors',
+        goal: 'order_constructor'
+      },
+    ]
+  }
+
+  var today = {
+    header: 'Авто нужен уже сегодня?',
+    subheader: 'Профессиональный подбор авто по РФ',
+    list: [
+      'Осмотр ЛКП',
+      'Компьютерная диагностика всех систем',
+      'Юридическая проврка на аресты, запреты, залоги, ограничения',
+      'Техническая проверка (силовые агрегаты)',
+      'Проверка кузова (распил, врезки, перебивки)',
+      'Проверка по аукционной статистике Японии и подлинность аукционного листа',
+      'Выдаем заключение'
+    ],
+    text: 'Работаем высокоточными профессиональными приборами от официальных диллеров',
+    form: [
+      { title: 'name', placeholder: 'Введите ваше имя', required: false },
+      { title: 'phone', placeholder: 'Введите ваш номер телефона', required: true },
+    ]
+  }
+
+.what#what.wow.fadeIn
+  .container
+    h2.what__header.wow.fadeInUp(data-wow-delay=".1s") !{what.header}
+    .what-items.row.wow.fadeInUp(data-wow-delay=".2s")
+      each item, index in what.items
+        a.what__item.col-md-6(href=item.href class="what__item_" + (index + 1) id="what__item_" + (index + 1) onclick="ym(71298799, 'reachGoal', '" + item.goal + "'); return true;")
+          span.what__item-image-part
+            img.what__item-image(src=item.image, alt='')
+          span.what__item-text-part
+            svg.what__item-icon
+              use(xlink:href=item.icon)
+            span.what__item-name !{item.name}
+    .today#today.wow.fadeInUp(data-wow-delay=".3s")
+      h2.today__header !{today.header}
+      p.today__subheader !{today.subheader}
+      ul.today__list
+        each li in today.list
+          li.today__list-item !{li}
+      p.today__text !{today.text}
+      form.today-form
+        input(type="hidden" name="act" value="today")
+        each input in today.form
+          label.today-form__label(class="today-form__label_" + input.title)
+            if input.required
+              input.today-form__input(class="today-form__input_" + input.title name=input.title placeholder=input.placeholder required)
+            else
+              input.today-form__input(class="today-form__input_" + input.title name=input.title placeholder=input.placeholder)
+        button.today-form__button.btn(type="submit")
+          span Заказать автоподбор

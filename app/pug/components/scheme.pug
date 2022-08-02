@@ -1,0 +1,56 @@
+-
+  var scheme = {
+    header: 'Схема работы компании TradeLine',
+    items: [
+      {
+        image: 'img/sprite.svg#scheme-01',
+        header: 'Онлайн заявка',
+        text: 'Заполните заявку на сайте с указанием марки и модели авто. <br>Наш менеджер рассчитает стоимость нужного вам авто, свяжется с вами и предложит варианты.'
+      },
+      {
+        image: 'img/sprite.svg#scheme-02',
+        header: 'Заключение договора',
+        text: 'Для заключения договора на поставку автомобиля, необходимо внести депозит в сумме 70000 тысяч рублей. <br>Полной оплаты стоимости автомобиля на этом этапе не требуется!'
+      },
+      {
+        image: 'img/sprite.svg#scheme-03',
+        header: 'Поиск авто',
+        text: 'Приступаем к поиску автомобиля на 120 аукционах Японии, площадках OnePrice <br>соответствующего вашим параметрам и бюджету, утвержденных в договоре. <br>Согласовываем каждый шаг с вами. Участвуем в торгах.'
+      },
+      {
+        image: 'img/sprite.svg#scheme-04',
+        header: 'Покупка авто',
+        text: 'Только после успешного выкупа лота с подходящим автомобилем, вы вносите вторую часть платежа: <br>стоимость авто на аукционе, и все расходы в Японии, включающие в себя (налоги, доставка до порта погрузки).'
+      },
+      {
+        image: 'img/sprite.svg#scheme-05',
+        header: 'Доставка до Владивостока',
+        text: 'Погрузка автомобиля на паром. <br>Доставка морским транспортом занимает около 3-4 дней.'
+      },
+      {
+        image: 'img/sprite.svg#scheme-06',
+        header: 'Таможенное оформление',
+        text: 'После прибытия авто в порт Владивостока производится окончательный расчет: <br>расходы по выгрузке, СВХ склад, таможенное оформление: пошлина, утилизационный сбор, <br>сертификат СБКТС, брокер, Глонасс (в зависимости от региона) комиссия агента.'
+      },
+      {
+        image: 'img/sprite.svg#scheme-07',
+        header: 'Доставка по России',
+        text: 'При необходимости отправим ваш автомобиль в любой город России. <br>Тарифы на доставку по РФ.'
+      },
+    ],
+    button: { href: '#order', text: 'Заказать авто' }
+  }
+
+.scheme#scheme.wow.fadeIn
+  .container
+    h2.scheme__header.wow.fadeInUp(data-wow-delay=".1s") !{scheme.header}
+    .scheme-items
+      each item, index in scheme.items
+        .scheme__item.wow.fadeInUp(data-wow-delay=".2s")
+          .scheme__item-image-part
+            img.scheme__item-image(src=item.image, alt='' class='scheme__item-image_' + (index + 1))
+          .scheme__item-text-part
+            p.scheme__item-header !{item.header}
+            p.scheme__item-text !{item.text}
+    a.scheme__button.btn.wow.fadeInUp(href=scheme.button.href data-subject="Заявка" data-wow-delay=".3s")
+      span !{scheme.button.text}

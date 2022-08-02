@@ -1,0 +1,50 @@
+-
+  var clearPhone = function(x) {
+    return x.replace(/\D/g, '');
+  }
+
+  var header = {
+    logo: { link: '/', image: 'img/logo.png' },
+    menu: [
+      { href: '#what__item_3', text: 'Авто под полную пошлину' },
+      { href: '#what__item_1', text: 'Электрокары' },
+      { href: '#what__item_4', text: 'Конструкторы и распилы' },
+      { href: '#what__item_2', text: 'Спецтехника' },
+      { href: '#today', text: 'Автоподбор' },
+      { href: '#', text: 'Онлайн аукционы' }
+    ],
+    phone: { number: '8 (800)-201-09-05', text: 'Звонок по России бесплатный' }
+  }
+
+  var intro = {
+    header: 'Компания <span class="bold">TradeLine</span>',
+    subheader: 'привоз авто с аукционов <span class="bold">Японии</span>',
+  }
+
+.main-header__top
+  .container
+    .main-header__top-inner.row.align-items-start.no-gutters
+      .logo
+        a.logo__link(href=header.logo.link)
+          img.logo__image(src=header.logo.image, alt="")
+      .main-menu
+        ul.main-menu-items.row.no-gutters
+          each item in header.menu
+            li.main-menu__item
+              if index
+                a.main-menu__link.goto(href=item.href)
+                  span !{item.text}
+              else
+                a.main-menu__link(href="/" + item.href)
+                  span !{item.text}
+      .main-header__phone
+        a.main-header__phone-link(href='tel:+' + clearPhone(header.phone.number)) !{header.phone.number}
+        p.main-header__phone-text !{header.phone.text}
+      .menu-toggle
+        i.icon-toggle
+          span
+          span
+          span
+if index
+  .main-header__bottom
+    include ../intro.pug

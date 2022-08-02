@@ -1,0 +1,35 @@
+-
+  var profitable = {
+    header: 'Какие авто выгодно привозить с Японии',
+    texts: [
+      {
+        text: 'По законам РФ сегодня допускается ввозить автомобили для постановки на учет <br>(под полную пошлину) не старше 10 лет. При импорте авто на территорию РФ необходимо <br>оплатить пошлину, которая зависит от года выпуска автомобиля, объема двигателя и лошадинных сил.',
+      },
+      {
+        text: 'Самый низкий коэффициент для расчета пошлины выходит для авто от 3х до 5 лет. <br>Поэтому мы рекомендуем привозить автомобили 2016-2018гг выпуска и объемом двигателя до 2.5 литров.',
+      },
+      {
+        text: 'Также выгодной покупкой будет привести авто с электродвигателем – сейчас для таких <br>авто отменены ввозные пошлины. В среднем электрокар выходит дешевле на 20-30%, <br>чем его бензиновый или дизельный аналог. ',
+      },
+      {
+        text: 'Хотите узнать, сколько выйдет нужный вам авто в России? <br>Воспользуйтесь нашим калькулятором!',
+        color: 'yellow'
+      },
+    ],
+    button: { href: '#', text: 'Расчитать' }
+  }
+
+.profitable#profitable.wow.fadeIn
+  .container
+    h2.profitable__header.wow.fadeInUp(data-wow-delay=".1s") !{profitable.header}
+    .profitable__text.wow.fadeInUp(data-wow-delay=".2s")
+      each text in profitable.texts
+        p(class=text.color == 'yellow' ? 'yellow' : '') !{text.text}
+    a.profitable__button.btn.wow.fadeInUp(href=profitable.button.href data-wow-delay=".3s" onclick="ym(71298799, 'reachGoal', 'calc'); return true;")
+      span !{profitable.button.text}
+
+
+
+
+
+
